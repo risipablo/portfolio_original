@@ -1,0 +1,128 @@
+.language-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: none;
+    padding: 0.35rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    overflow: hidden;
+    
+}
+
+/* .switch-button:hover {
+    border-color: #cbd5e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    
+} */
+
+.switch-button span {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.875rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #000000;
+    transition: color 0.3s ease;
+    flex: 1;
+    justify-content: center;
+    
+}
+
+.switch-button span::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
+/* Bandera de USA */
+.switch-button span:last-of-type::before {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNTAwIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc0YWNkZiIvPjxyZWN0IHk9IjE2Ni42NyIgd2lkdGg9IjgwMCIgaGVpZ2h0PSIxNjYuNjciIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNNDAwIDMxMGMtMjIuMDkgMC00MC0xNy45MS00MC00MHMxNy45MS00MCA0MC00MCA0MCAxNy45MSA0MCA0MC0xNy45MSA0MC00MCA0MHptMC0xNWMxMy44MSAwIDI1LTExLjE5IDI1LTI1cy0xMS4xOS0yNS0yNS0yNS0yNSAxMS4xOS0yNSAyNSAxMS4xOSAyNSAyNSAyNXoiIGZpbGw9IiNmNmIzNGYiLz48cGF0aCBkPSJNNDAwIDI1NWw1LjkgMTguMWgxOS4xbC0xNS41IDExLjMgNS45IDE4LjEtMTUuNC0xMS4yLTE1LjUgMTEuMiA1LjktMTguMS0xNS41LTExLjNoMTkuMXoiIGZpbGw9IiNmNmIzNGYiLz48L3N2Zz4=');
+}
+
+/* Bandera de ARGENTINA */
+.switch-button span:first-of-type::before {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NTAwIDM5MDAiPjxyZWN0IHdpZHRoPSI3NTAwIiBoZWlnaHQ9IjM5MDAiIGZpbGw9IiNiMjIyMzQiLz48cGF0aCBkPSJNMCwzMDBoNzUwMG0wLDYwMEgwbTAsNjAwaDc1MDBtMCw2MDBIMG0wLDYwMGg3NTAwbTAsNjAwSDAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIzMDAiLz48cmVjdCB3aWR0aD0iMzAwMCIgaGVpZ2h0PSIyMTAwIiBmaWxsPSIjM2MzYjZlIi8+PGcgZmlsbD0iI2ZmZiI+PHBhdGggZD0iTTI0NywxODAgbCAwIDcwIGwtNDAsMjUgaDQ5IGw0MCwyNSBsMCwtNzAgbDQwLC0yNSBoLTQ5IHogTTI0NywxODAgbCAwIDcwIGwtNDAsMjUgaDQ5IGw0MCwyNSBsMCwtNzAgbDQwLC0yNSBoLTQ5IHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI1MCwwKSIvPjxwYXRoIGQ9Ik0yNDcsMTgwIGwgMCA3MCBsLTQwLDI1IGg0OSBsNDAsMjUgbDAsLTcwIGw0MCwtMjUgaC00OSB6IE0yNDcsMTgwIGwgMCA3MCBsLTQwLDI1IGg0OSBsNDAsMjUgbDAsLTcwIGw0MCwtMjUgaC00OSB6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MDAsMCkiLz48cGF0aCBkPSJNMjQ3LDE4MCBsIDAgNzAgbC00MCwyNSBoNDkgbDQwLDI1IGwwLC03MCBsNDAsLTI1IGgtNDkgeiBNMjQ3LDE4MCBsIDAgNzAgbC00MCwyNSBoNDkgbDQwLDI1IGwwLC03MCBsNDAsLTI1IGgtNDkgeiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzUwLDApIi8+PC9nPjwvc3ZnPg==');
+}
+
+.switch-button span.active {
+    color: #ffffff;
+    
+    body.dark & {
+        color: #ffffff;
+    }
+}
+
+.switch-slider {
+    position: absolute;
+    top: 0.35rem;
+    left: 0.35rem;
+    width: calc(50% - 0.35rem);
+    height: calc(100% - 0.7rem);
+    background: linear-gradient(135deg, #3570f0fb, #155aeee0);
+    border-radius: 50px;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(53, 112, 240, 0.3);
+    
+    body.dark & {
+        background: linear-gradient(135deg, #1e5bdffb, #3570f0fb);
+        box-shadow: 0 2px 4px rgba(30, 91, 223, 0.4);
+    }
+}
+
+/* Estilos para navbar */
+.navbar .language-switch {
+    margin-left: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .switch-button {
+        padding: 0.25rem;
+    }
+    
+    .switch-button span {
+        padding: 0.4rem 0.65rem;
+        font-size: 0.8rem;
+    }
+    
+    .switch-button span::before {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .navbar .language-switch {
+        margin-left: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .switch-button span {
+        padding: .45rem .7rem;
+        font-size: .92rem;
+        gap: 1rem;
+    }
+    
+    .switch-button span::before {
+        width: 18px;
+        height: 18px;
+    }
+}

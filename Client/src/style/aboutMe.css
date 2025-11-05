@@ -1,0 +1,80 @@
+.container-about, .container-projects, .container-skills {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+    
+}
+
+.title-about {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.title-about h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #030303;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    
+    body.dark & {
+        color: #e9e7e7;
+    }
+}
+
+.title-about h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3570f0fb, #155aeee0);
+    border-radius: 2px;
+    
+    body.dark & {
+        background: linear-gradient(90deg, #1e5bdffb, #3570f0fb);
+    }
+}
+
+.text-about {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+    text-align: justify;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+    body.dark & {
+        color: #d4d4d4;
+    }
+}
+
+.text-about p {
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 850px) {
+    .container-about {
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+    
+    .title-about h2 {
+        font-size: 2.5rem;
+    }
+    
+    .title-about h2::after {
+        width: 60px;
+        height: 3px;
+    }
+    
+    .text-about {
+        font-size: 1rem;
+        text-align: left;
+    }
+}

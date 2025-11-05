@@ -1,0 +1,129 @@
+.container-skills {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+}
+
+.title-skill {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.title-skill h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #030303;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    
+    body.dark & {
+        color: #e9e7e7;
+    }
+}
+
+.title-skill h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3570f0fb, #155aeee0);
+    border-radius: 2px;
+    
+    body.dark & {
+        background: linear-gradient(90deg, #1e5bdffb, #3570f0fb);
+    }
+}
+
+/* Estilos de grilla para los skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); */
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    body.dark & {
+        background: #1a1a1a;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.skill-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(53, 112, 240, 0.2);
+    
+    body.dark & {
+        box-shadow: 0 8px 16px rgba(30, 91, 223, 0.3);
+    }
+}
+
+.skill-image {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-image {
+    transform: scale(1.1);
+}
+
+.skill-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #030303;
+    text-align: center;
+    margin: 0;
+    
+    body.dark & {
+        color: #e9e7e7;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .skill-item {
+        padding: 1rem;
+    }
+    
+    .skill-image {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .skill-title {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 1rem;
+    }
+}

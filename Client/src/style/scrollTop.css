@@ -1,0 +1,36 @@
+.btn-volver-arriba {
+    position: fixed;
+    bottom: 20px;
+    background-color: transparent;
+    border: none;
+    border-radius: 2px 3px;
+    margin: 0 1rem;
+    padding: .3rem 1.2rem;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.btn-volver-arriba img{
+    background-color: transparent;
+
+    width: 48px;
+    height: 48px;
+}
+
+.btn-volver-arriba:hover {
+    opacity: 2;
+}
+
+@media (max-width: 480px) {
+    .btn-volver-arriba{
+        margin: 0 .5rem;
+    }
+    .btn-volver-arriba img{
+        width: 70px;
+        height: 70px;
+    }
+}
+
+

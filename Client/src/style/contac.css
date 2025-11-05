@@ -1,0 +1,422 @@
+.container-contact {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 6rem auto;
+}
+
+.title-contact {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.title-contact h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #030303;
+  margin-bottom: 1rem;
+}
+
+body.dark .title-contact h2 {
+  color: #e9e7e7;
+}
+
+.underline-contact {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #285dcefb, #155aeee0);
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+body.dark .underline-contact {
+  background: linear-gradient(90deg, #1e5bdffb, #3570f0fb);
+}
+
+.description-contact {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2c2c2c;
+  text-align: center;
+  margin: 0 auto 3rem;
+  max-width: 700px;
+}
+
+body.dark .description-contact {
+  color: #d4d4d4;
+}
+
+/* 🧩 FORMULARIO */
+.contact-form {
+  background: linear-gradient(105deg, #f5f7fa 0%, #ffffff 100%);
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+body.dark .contact-form {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* COLUMNA IZQUIERDA */
+.form-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* COLUMNA DERECHA */
+.form-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+/* GRUPOS DE CAMPOS */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #030303;
+  margin-bottom: 0.5rem;
+}
+
+body.dark .form-group label {
+  color: #e9e7e7;
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  color: #030303;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 100%;
+}
+
+body.dark .form-group input,
+body.dark .form-group textarea {
+  background: #1a1a1a;
+  border-color: #3a3a3a;
+  color: #e9e7e7;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #3570f0fb;
+  box-shadow: 0 0 0 3px rgba(53, 112, 240, 0.1);
+}
+
+body.dark .form-group input:focus,
+body.dark .form-group textarea:focus {
+  border-color: #1e5bdffb;
+  box-shadow: 0 0 0 3px rgba(30, 91, 223, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+body.dark .form-group input::placeholder,
+body.dark .form-group textarea::placeholder {
+  color: #666;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+/* Mensajes de error */
+.error-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: #e53e3e;
+  margin-top: 0.25rem;
+}
+
+body.dark .error-text {
+  color: #fc8181;
+}
+
+/* BOTÓN DE ENVÍO */
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #3570f0fb 0%, #155aeee0 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(53, 112, 240, 0.3);
+  margin-top: auto;
+}
+
+body.dark .submit-button {
+  background: linear-gradient(135deg, #1e5bdffb 0%, #3570f0fb 100%);
+  box-shadow: 0 4px 12px rgba(30, 91, 223, 0.4);
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(53, 112, 240, 0.4);
+}
+
+body.dark .submit-button:hover {
+  box-shadow: 0 6px 16px rgba(30, 91, 223, 0.5);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 📱 RESPONSIVE - Tablets grandes */
+@media (max-width: 1024px) {
+  .container-contact {
+    padding: 2rem 1.5rem;
+    margin: 4rem auto;
+  }
+  
+  .contact-form {
+    padding: 2.5rem;
+    gap: 1.75rem;
+  }
+}
+
+/* 📱 RESPONSIVE - Tablets */
+@media (max-width: 850px) {
+  .container-contact {
+    margin: 3rem auto;
+    padding: 1.5rem;
+  }
+  
+  .title-contact h2 {
+    font-size: 2.5rem;
+  }
+  
+  .description-contact {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .contact-form {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  
+  .form-left,
+  .form-right {
+    gap: 1.2rem;
+  }
+  
+  .form-group textarea {
+    min-height: 160px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* 📱 RESPONSIVE - Móviles grandes */
+@media (max-width: 640px) {
+  .container-contact {
+    margin: 2rem auto;
+    padding: 1.25rem;
+  }
+  
+  .title-contact h2 {
+    font-size: 2.2rem;
+  }
+  
+  .description-contact {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .contact-form {
+    padding: 1.75rem;
+    gap: 1.25rem;
+    border-radius: 12px;
+  }
+  
+  .form-left,
+  .form-right {
+    gap: 1rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem;
+  }
+  
+  .form-group textarea {
+    min-height: 140px;
+  }
+  
+  .submit-button {
+    font-size: 1rem;
+    padding: 0.95rem 1.5rem;
+  }
+}
+
+/* 📱 RESPONSIVE - Móviles pequeños */
+@media (max-width: 480px) {
+  .container-contact {
+    margin: 1.5rem 0.75rem;
+    padding: 1rem;
+  }
+  
+  .title-contact h2 {
+    font-size: 1.85rem;
+  }
+  
+  .description-contact {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.75rem;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: 10px;
+  }
+  
+  .form-left,
+  .form-right {
+    gap: 0.9rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    margin: 1.2rem 0;
+    
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 6px;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+  }
+  
+  .submit-button {
+    font-size: 0.95rem;
+    padding: 0.875rem 1.25rem;
+    gap: 0.4rem;
+  }
+  
+  .submit-button svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .error-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* 📱 RESPONSIVE - Móviles extra pequeños */
+@media (max-width: 360px) {
+  .container-contact {
+    margin: 1rem 0.5rem;
+    padding: 0.75rem;
+  }
+  
+  .title-contact h2 {
+    font-size: 1.65rem;
+  }
+  
+  .description-contact {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-form {
+    padding: 1.25rem;
+    gap: 0.875rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.875rem;
+    padding: 0.7rem 0.85rem;
+  }
+  
+  .form-group textarea {
+    min-height: 110px;
+  }
+  
+  .submit-button {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
+}
+
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .container-contact {
+    margin: 1.5rem auto;
+  }
+  
+  .title-contact h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .description-contact {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+  }
+}

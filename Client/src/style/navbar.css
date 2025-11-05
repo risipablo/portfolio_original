@@ -1,0 +1,207 @@
+.container-navbar{
+    cursor: pointer;
+    z-index: 1000;
+    width: 100%;
+    position: fixed; 
+    top: 0; 
+    transition: background-color 0.3s, color 0.3s;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: space-between;
+    transition: .3s ease-in-out;
+    border-bottom: 1.2px solid rgba(24, 24, 24, 0.8);
+}
+
+.navbar:hover {
+    box-shadow: 0px 0px 22px rgba(171, 171, 171, 0.612); 
+}
+
+.logo-container {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-container img {
+    height: 70px;
+    width: auto;
+    transition: transform 0.6s ease;
+}
+
+.logo-container:hover img {
+    transform: rotate(360deg);
+}
+
+.logo-container:active img {
+    transform: rotate(360deg);
+}
+
+.menu {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu.open {
+    transform: translateX(0);
+}
+
+.menu a {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0px 1.8rem;
+    padding: 4px 8px;
+    letter-spacing: 1px;
+    color: #030303;
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.menu a:hover {
+    color: rgba(50, 50, 51, 0.7);
+    transform: translateY(2px);
+}
+
+.menu a:active {
+    transform: translateY(4px);
+}
+
+.user-container {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.user-mobile {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    z-index: 1001;
+}
+
+.menu-icon span {
+    height: 3px;
+    width: 25px;
+    background-color: #18181a;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-icon.open span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 6px);
+}
+
+.menu-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -6px);
+}
+
+@media (max-width: 850px) {
+
+
+    .logo-container img {
+        height: 80px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 65%;
+        max-width: 320px;
+        height: 100vh;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        backdrop-filter: blur(10px);
+        justify-content: flex-start;
+        padding-top: 5rem;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
+        /* border-left: 1px solid rgba(255, 255, 255, 0.1); */
+    }
+
+    .menu.open {
+        transform: translateX(0);
+    }
+
+    .menu a {
+        margin: 1.2rem 2rem;
+        padding: 12px 16px;
+        font-size: 1.3rem;
+        color: #e9e7e7;
+        width: calc(100% - 4rem);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        transform: translateX(-4px);
+        padding-left: 20px;
+    }
+
+    .menu a:active {
+        transform: translateX(-6px) scale(0.98);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Ocultar user de desktop en mobile */
+    .user-container {
+        display: none;
+    }
+
+    .user-mobile {
+        display: block;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        margin: auto 2rem 3rem 2rem;
+        padding: 12px 16px;
+        color: #e9e7e7;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: flex;
+        color: #e9e7e7;
+    }
+
+    .menu-icon span {
+    background-color: #c4c2c2;
+    }
+
+
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}

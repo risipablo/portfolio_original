@@ -1,0 +1,238 @@
+.footer {
+  /* background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); */
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 20%, #2c5364 100%);
+  color: #e9e7e7;
+  margin-top: 4rem;
+  padding: 3rem 2rem 1.5rem;
+}
+
+body.dark .footer {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+  color: #030303;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.footer-info h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: #e9e7e7;
+}
+
+body.dark .footer-info h3 {
+  color: #030303;
+}
+
+.footer-info p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  color: #b8b8b8;
+}
+
+body.dark .footer-info p {
+  color: #555;
+}
+
+.footer-social {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e9e7e7;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+body.dark .social-link {
+  background: rgba(0, 0, 0, 0.05);
+  color: #030303;
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+}
+
+.social-link.whatsapp:hover {
+  background: #25D366;
+  color: #fff;
+}
+
+body.dark .social-link.whatsapp:hover {
+  background: #25D366;
+  color: #fff;
+}
+
+.social-link.instagram:hover {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #fff;
+}
+
+body.dark .social-link.instagram:hover {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #fff;
+}
+
+.social-link.location:hover {
+  background: #3570f0fb;
+  color: #fff;
+}
+
+body.dark .social-link.location:hover {
+  background: #3570f0fb;
+  color: #fff;
+}
+
+.footer-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #b8b8b8;
+}
+
+body.dark .footer-location {
+  color: #555;
+}
+
+.footer-divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+body.dark .footer-divider {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-rights,
+.footer-credits {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  margin: 0;
+  color: #888;
+}
+
+body.dark .footer-rights,
+body.dark .footer-credits {
+  color: #666;
+}
+
+.footer-credits a {
+  color: #3570f0fb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+body.dark .footer-credits a {
+  color: #1e5bdffb;
+}
+
+.footer-credits a:hover {
+  color: #155aeee0;
+  text-decoration: underline;
+}
+
+body.dark .footer-credits a:hover {
+  color: #3570f0fb;
+}
+
+@media (max-width: 850px) {
+  .footer {
+    padding: 2rem 1.5rem 1rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .footer-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-location {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  .social-link {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .footer-info h3 {
+    
+    font-size: 1.2rem;
+  }
+
+  .footer-info p {
+    font-size: 0.9rem;
+  }
+
+  .footer-social {
+    gap: 2rem;
+  }
+
+  .social-link {
+    width: 38px;
+    height: 38px;
+  }
+
+  .footer-rights,
+  .footer-credits {
+    font-size: 0.8rem;
+  }
+}
