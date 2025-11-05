@@ -10,6 +10,8 @@ import { enTranslations, esTranslations } from "./translation/translate.ts";
 import axios from 'axios';
 
 const serverFront = "https://portafolio-original.onrender.com"; 
+// const serverFront = "http://localhost:3001";
+
 
 const api = axios.create({
   baseURL: serverFront,

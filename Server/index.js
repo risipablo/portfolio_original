@@ -12,6 +12,9 @@ if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
     process.exit(1);
 }
 
+console.log('📧 EMAIL_USER:', process.env.EMAIL_USER);
+console.log('🔑 EMAIL_PASS length:', process.env.EMAIL_PASS?.length); // No mostrar la pass completa
+
 const corsOptions = {
     origin: ['http://localhost:5173', 'https://portfolio-original-pearl.vercel.app', 'https://portafolio-original.onrender.com'],
     methods: ['GET', 'POST', 'OPTIONS'],
@@ -19,7 +22,6 @@ const corsOptions = {
     credentials: true
 }
 
-// ✅ CORS debe ir ANTES de cualquier otra cosa
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
@@ -30,7 +32,7 @@ const transporter = nodemailer.createTransport({
     secure: false, 
     auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        pass: process.env.EMAIL_PASS.replace(/\s/g, '') // ✅ Quitar TODOS los espacios
     },
     tls: {
         rejectUnauthorized: false
@@ -50,15 +52,21 @@ transporter.verify(function (error, success) {
 });
 
 app.post('/send-email', async (req, res) => {
+    console.log('📨 Petición recibida en /send-email');
+    console.log('📦 Body:', req.body);
+    
     try {
         const { name, email, message, cellphone } = req.body;
 
         // Validar campos requeridos
         if (!name || !email || !message) {
+            console.log('❌ Faltan campos requeridos');
             return res.status(400).json({ 
                 error: 'Todos los campos son requeridos: name, email, message' 
             });
         }
+
+        console.log('📧 Preparando email...');
 
         const mailOptions = {
             from: `"Notificaciones Portafolio" <${process.env.EMAIL_USER}>`,
@@ -120,6 +128,8 @@ app.post('/send-email', async (req, res) => {
             `
         };
 
+        console.log('📤 Enviando email...');
+        
         // Enviar el email usando async/await
         const info = await transporter.sendMail(mailOptions);
         
