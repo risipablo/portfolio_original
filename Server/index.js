@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -7,13 +7,12 @@ require('dotenv').config();
 const app = express();
 
 // Validar variables de entorno requeridas
-if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.error('Error: Faltan variables de entorno EMAIL_USER o EMAIL_PASS');
+if (!process.env.RESEND_API_KEY || !process.env.EMAIL_USER) {
+    console.error('Error: Faltan variables de entorno RESEND_API_KEY o EMAIL_USER');
     process.exit(1);
 }
 
-console.log('📧 EMAIL_USER:', process.env.EMAIL_USER);
-console.log('🔑 EMAIL_PASS length:', process.env.EMAIL_PASS?.length); // No mostrar la pass completa
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const corsOptions = {
     origin: ['http://localhost:5173', 'https://portfolio-original-pearl.vercel.app', 'https://portafolio-original.onrender.com'],
@@ -25,30 +24,13 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, 
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS.replace(/\s/g, '') // ✅ Quitar TODOS los espacios
-    },
-    tls: {
-        rejectUnauthorized: false
-    },
-    connectionTimeout: 30000, 
-    greetingTimeout: 30000,
-    socketTimeout: 30000
+// Health check
+app.get('/', (req, res) => {
+    res.json({ status: 'ok', message: 'Servidor funcionando correctamente' });
 });
 
-// Verificar configuración del transporter
-transporter.verify(function (error, success) {
-    if (error) {
-        console.log('❌ Error configurando nodemailer:', error);
-    } else {
-        console.log('✅ Servidor de correo listo');
-    }
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok' });
 });
 
 app.post('/send-email', async (req, res) => {
@@ -66,26 +48,13 @@ app.post('/send-email', async (req, res) => {
             });
         }
 
-        console.log('📧 Preparando email...');
+        console.log('📧 Enviando email con Resend...');
 
-        const mailOptions = {
-            from: `"Notificaciones Portafolio" <${process.env.EMAIL_USER}>`,
+        const { data, error } = await resend.emails.send({
+            from: 'Portfolio Contact <onboarding@resend.dev>',
             to: process.env.EMAIL_USER,
             replyTo: email,
             subject: `Nuevo contacto: ${name} - Portafolio`,
-            text: `
-                NUEVO MENSAJE DESDE TU PORTFOLIO
-                ───────────────────────────────
-                📋 Información del contacto:
-                • Nombre: ${name}
-                • Email: ${email}
-                • Celular: ${cellphone || 'No proporcionado'}
-                • Fecha: ${new Date().toLocaleString()}
-
-                ✉️ Mensaje:
-                ${message}
-                ───────────────────────────────
-            `,
             html: `
                 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto;">
                     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; color: white; text-align: center;">
@@ -101,7 +70,7 @@ app.post('/send-email', async (req, res) => {
                             </tr>
                             <tr>
                                 <td style="padding: 8px; font-weight: bold;">📧 Email:</td>
-                                <td style="padding: 8px;">${email}</td>
+                                <td style="padding: 8px;"><a href="mailto:${email}">${email}</a></td>
                             </tr>
                             <tr>
                                 <td style="padding: 8px; font-weight: bold;">📱 Celular:</td>
@@ -109,7 +78,7 @@ app.post('/send-email', async (req, res) => {
                             </tr>
                             <tr>
                                 <td style="padding: 8px; font-weight: bold;">📅 Fecha:</td>
-                                <td style="padding: 8px;">${new Date().toLocaleString()}</td>
+                                <td style="padding: 8px;">${new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' })}</td>
                             </tr>
                         </table>
                     </div>
@@ -117,27 +86,33 @@ app.post('/send-email', async (req, res) => {
                     <div style="padding: 20px;">
                         <h3 style="color: #333;">💬 Mensaje</h3>
                         <div style="background: white; padding: 15px; border-left: 4px solid #667eea; border-radius: 3px;">
-                            <p style="margin: 0; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</p>
+                            <p style="margin: 0; line-height: 1.6; white-space: pre-wrap;">${message}</p>
                         </div>
                     </div>
                     
                     <div style="text-align: center; padding: 20px; background: #f1f3f4; font-size: 12px; color: #666;">
                         <p>Este mensaje fue enviado desde el formulario de contacto de tu portafolio web.</p>
+                        <p style="margin-top: 10px;">
+                            <a href="mailto:${email}" style="color: #667eea; text-decoration: none;">Responder a ${name}</a>
+                        </p>
                     </div>
                 </div>
             `
-        };
+        });
 
-        console.log('📤 Enviando email...');
-        
-        // Enviar el email usando async/await
-        const info = await transporter.sendMail(mailOptions);
-        
-        console.log('✅ Email enviado exitosamente:', info.response);
+        if (error) {
+            console.error('❌ Error de Resend:', error);
+            return res.status(400).json({ 
+                error: 'Error al enviar el correo',
+                details: error.message 
+            });
+        }
+
+        console.log('✅ Email enviado exitosamente:', data);
         
         res.status(200).json({ 
             message: 'Correo enviado con éxito',
-            messageId: info.messageId 
+            messageId: data.id 
         });
 
     } catch (error) {
@@ -152,4 +127,5 @@ app.post('/send-email', async (req, res) => {
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`🚀 Servidor corriendo en el puerto ${PORT}`);
+    console.log(`📧 Emails se enviarán a: ${process.env.EMAIL_USER}`);
 });
