@@ -13,13 +13,13 @@ if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
 }
 
 const corsOptions = {
-    origin: ['http://localhost:5174', 'https://portafolio-original-ecru.vercel.app','https://portafolio-original.onrender.com'],
-    methods: 'GET,POST,DELETE,PATCH',
-    optionsSuccessStatus: 200,
+    origin: ['http://localhost:5173', 'https://portfolio-original-pearl.vercel.app', 'https://portafolio-original.onrender.com'],
+    methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }
 
+// ✅ CORS debe ir ANTES de cualquier otra cosa
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
@@ -43,42 +43,40 @@ const transporter = nodemailer.createTransport({
 // Verificar configuración del transporter
 transporter.verify(function (error, success) {
     if (error) {
-        console.log('Error configurando nodemailer:', error);
+        console.log('❌ Error configurando nodemailer:', error);
     } else {
-        console.log('Servidor de correo listo');
+        console.log('✅ Servidor de correo listo');
     }
 });
 
 app.post('/send-email', async (req, res) => {
     try {
-        const { name, email, message } = req.body;
+        const { name, email, message, cellphone } = req.body;
 
         // Validar campos requeridos
         if (!name || !email || !message) {
-            
             return res.status(400).json({ 
                 error: 'Todos los campos son requeridos: name, email, message' 
             });
-            
         }
-        console.log('✅ Email enviado exitosamente');
 
-    const mailOptions = {
-    from: `"Notificaciones Portafolio" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_USER,
-    replyTo: email,
-    subject: `Nuevo contacto: ${name} - Portafolio`,
-    text: `
-        NUEVO MENSAJE DESDE TU PORTFOLIO
-        ───────────────────────────────
-        📋 Información del contacto:
-        • Nombre: ${name}
-        • Email: ${email}
-        • Fecha: ${new Date().toLocaleString()}
+        const mailOptions = {
+            from: `"Notificaciones Portafolio" <${process.env.EMAIL_USER}>`,
+            to: process.env.EMAIL_USER,
+            replyTo: email,
+            subject: `Nuevo contacto: ${name} - Portafolio`,
+            text: `
+                NUEVO MENSAJE DESDE TU PORTFOLIO
+                ───────────────────────────────
+                📋 Información del contacto:
+                • Nombre: ${name}
+                • Email: ${email}
+                • Celular: ${cellphone || 'No proporcionado'}
+                • Fecha: ${new Date().toLocaleString()}
 
-        ✉️ Mensaje:
-        ${message}
-        ───────────────────────────────
+                ✉️ Mensaje:
+                ${message}
+                ───────────────────────────────
             `,
             html: `
                 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -96,6 +94,10 @@ app.post('/send-email', async (req, res) => {
                             <tr>
                                 <td style="padding: 8px; font-weight: bold;">📧 Email:</td>
                                 <td style="padding: 8px;">${email}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; font-weight: bold;">📱 Celular:</td>
+                                <td style="padding: 8px;">${cellphone || 'No proporcionado'}</td>
                             </tr>
                             <tr>
                                 <td style="padding: 8px; font-weight: bold;">📅 Fecha:</td>
@@ -118,32 +120,26 @@ app.post('/send-email', async (req, res) => {
             `
         };
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.error('Error enviando email:', error);
-                return res.status(500).json({ 
-                    error: 'Error al enviar el correo',
-                    details: error.message 
-                });
-            }
-            console.log('Correo enviado:', info.response);
-            res.status(200).json({ 
-                message: 'Correo enviado con éxito',
-                messageId: info.messageId 
-            });
+        // Enviar el email usando async/await
+        const info = await transporter.sendMail(mailOptions);
+        
+        console.log('✅ Email enviado exitosamente:', info.response);
+        
+        res.status(200).json({ 
+            message: 'Correo enviado con éxito',
+            messageId: info.messageId 
         });
 
     } catch (error) {
-        console.error('Error en /send-email:', error);
+        console.error('❌ Error en /send-email:', error);
         res.status(500).json({ 
-            error: 'Error interno del servidor' 
+            error: 'Error al enviar el correo',
+            details: error.message 
         });
     }
 });
 
-
-
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+    console.log(`🚀 Servidor corriendo en el puerto ${PORT}`);
 });
