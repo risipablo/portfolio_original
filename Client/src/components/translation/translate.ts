@@ -23,6 +23,16 @@ export const enTranslations: Itranslate = {
   skills:{
     title: "Skills"
   },
+
+    projectTitles: {
+    p1: "Virtual Wallet",
+    p2: "Sales App",
+    p3: "Calendar App",
+    p4: "Game Quiz",
+    p5: "Virtual Draw",
+    p6: "Casa Vita"
+  },
+
   contact:{
     title: "Contact",
     p: "I'm waiting for your message so I can help you with anything you need.",
@@ -39,42 +49,48 @@ export const enTranslations: Itranslate = {
 
 
 export const esTranslations: Itranslate = {
-
-  navbar:{
+  navbar: {
     a1: "Sobre Mi",
     a2: "Proyectos",
     a3: "Conocimientos",
     a4: "Contacto"
   },
 
-  header:{
+  header: {
     title: "Desarrollador Front End",
-    titleP:"Mis Proyectos",
+    titleP: "Mis Proyectos",
     p: "Todos los derechos reservados."
   },
-      about: {
+  about: {
     title: "Sobre mí",
     paragraph1: "Desarrollador Frontend especializado en React, TypeScript y JavaScript. Creo interfaces web modernas y responsive con integración de APIs REST.",
     paragraph2: "Trabajo como freelance en diversos proyectos web. Mi stack incluye React en frontend y experiencia en backend con Node.js, Express, MongoDB, SQL Server, C# y .NET, permitiéndome trabajar en desarrollos full stack.",
     paragraph3: "Busco oportunidades para aportar valor en equipos innovadores."
   },
-    skills:{
-    title: "Conocimientos"
+
+  projectTitles: {
+    p1: "Billetera Virtual",
+    p2: "App Ventas",
+    p3: "Calendario Aplicación",
+    p4: "Game Quiz",
+    p5: "Sorteo Virtual",
+    p6: "Casa Vita"
   },
-  contact:{
+
+  contact: {
     title: "Contacto",
-    p: "Espero tu mensaje para poder contactarnos y así ayudarte en lo que necesites." ,
-    consultation:"Contame sobre tu consulta o motivo de contacto...",
-    cell:"Celular",
-    hconsul:"Consulta",
-    email:"introduzca su email",
-    name:" Nombre",
+    p: "Espero tu mensaje para poder contactarnos y así ayudarte en lo que necesites.",
+    consultation: "Contame sobre tu consulta o motivo de contacto...",
+    cell: "Celular",
+    hconsul: "Consulta",
+    email: "introduzca su email",
+    name: " Nombre",
     nameP: "Complete con su nombre",
     send: "Enviar"
   },
- 
-  
-
+  skills: {
+    title: ''
+  }
 }
 
 

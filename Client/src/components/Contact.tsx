@@ -15,7 +15,7 @@ const serverFront = "https://portafolio-original.onrender.com";
 
 const api = axios.create({
   baseURL: serverFront,
-  timeout: 10000, 
+  timeout: 60000, 
   headers: {
     'Content-Type': 'application/json',
   },

@@ -305,8 +305,8 @@ body.dark .submit-button:hover {
 /* 📱 RESPONSIVE - Móviles pequeños */
 @media (max-width: 480px) {
   .container-contact {
-    margin: 1.5rem 0.75rem;
-    padding: 1rem;
+    margin: 6rem auto;
+        padding:1.5rem;
   }
   
   .title-contact h2 {
@@ -366,8 +366,8 @@ body.dark .submit-button:hover {
 /* 📱 RESPONSIVE - Móviles extra pequeños */
 @media (max-width: 360px) {
   .container-contact {
-    margin: 1rem 0.5rem;
-    padding: 0.75rem;
+    margin: 6rem auto;
+        padding:1.5rem;
   }
   
   .title-contact h2 {

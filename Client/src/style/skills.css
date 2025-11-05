@@ -102,6 +102,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .container-skills {
+        margin: 6rem auto;
+        padding:1.5rem;
+    }
     .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         gap: 1.5rem;

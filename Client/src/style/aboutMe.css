@@ -60,12 +60,12 @@
 
 @media (max-width: 850px) {
     .container-about {
-        margin: 2rem auto;
-        padding: 1.5rem;
+        margin: 6rem auto;
+        padding:1.2rem;
     }
     
     .title-about h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .title-about h2::after {
