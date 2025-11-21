@@ -54,7 +54,7 @@ export const project  = [
     description: "Juego web con preguntas de programación.",
     skill: ["Html", "Css", "Javascript"],
     web: {
-      github: "https://github.com/risipablo/Game-Quiz.git",
+      github: "https://github.com/risipablo/app_sorteo.git",
       url: "https://juego-de-multiple-opcion.vercel.app/",
       note: "Una aplicacion asdafdgsdasafsf"
     },
@@ -64,10 +64,10 @@ export const project  = [
     id: 5,
     title: "Sorteo Virtual",
     description: "App web para realizar sorteos entre participantes.",
-    skill: ['React JS', "Node JS", "Mongo Db", "Css"],
+    skill: [' Typescript ', "Node JS", "Mongo Db", "Css"],
     web: {
       github: "https://github.com/risipablo/app-Sorteo.git",
-      url: "https://app-sorteo-theta.vercel.app",
+      url: "https://app-sorteo-bgv7.vercel.app/",
       note: "Una aplicacion asdafdgsdasafsf"
     },
     image: image5,

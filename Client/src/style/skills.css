@@ -11,7 +11,7 @@
 
 .title-skill h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #030303;
     margin-bottom: 1rem;
@@ -95,9 +95,6 @@
     text-align: center;
     margin: 0;
     
-    body.dark & {
-        color: #e9e7e7;
-    }
 }
 
 /* Responsive */

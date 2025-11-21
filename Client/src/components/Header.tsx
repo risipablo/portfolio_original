@@ -63,7 +63,7 @@ export const Header = () => {
                             delay: 0.6
                         }}
                     >
-                        Pablo Risi
+                        Pablo Matías Risi
                     </motion.h2>
                     
                     <motion.h3

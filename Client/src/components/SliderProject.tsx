@@ -63,6 +63,12 @@ export const SliderProjects = () => {
     return visible;
   };
 
+  const getTranslatedDescription = (projectIndex: number) => {
+    const projectKey = `p${projectIndex + 1}` as keyof typeof translation.projectP
+    return translation.projectP[projectKey] || project[projectIndex]?.description || ''
+
+  }
+
   const visibleProjects = getVisibleProjects();
 
   return (
@@ -127,7 +133,7 @@ export const SliderProjects = () => {
 
                   <div className="project-content">
                     <h3 className="project-title">{proj.title}</h3>
-                    <p className="project-description">{proj.description}</p>
+                    <p className="project-description">{getTranslatedDescription(proj.originalIndex)}</p>
                     
                     {proj.skill && proj.skill.length > 0 && (
                       <div className="project-tags">

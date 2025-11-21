@@ -33,6 +33,15 @@ export const enTranslations: Itranslate = {
     p6: "Casa Vita"
   },
 
+  projectP:{
+    p1:"Web app to control and record your daily expenses.",
+    p2:"Web system for managing sales, stock and suppliers.",
+    p3:"Web app to organize and plan your activities.",
+    p4:"Web game with programming questions.",
+    p5:"Web app for conducting raffles among participants.",
+    p6:"Informative website for a medical practice."
+  },
+
   contact:{
     title: "Contact",
     p: "I'm waiting for your message so I can help you with anything you need.",
@@ -77,6 +86,15 @@ export const esTranslations: Itranslate = {
     p6: "Casa Vita"
   },
 
+  projectP:{
+    p1:"App web para controlar y registrar tus gastos diarios.",
+    p2:"Sistema web para gestionar ventas, stock y proveedores.",
+    p3:"App web para organizar y planificar tus actividades.",
+    p4:"Juego web con preguntas de programación.",
+    p5:"App web para realizar sorteos entre participantes.",
+    p6:"Sitio web informativo para un consultorio médico."
+  },
+
   contact: {
     title: "Contacto",
     p: "Espero tu mensaje para poder contactarnos y así ayudarte en lo que necesites.",
@@ -89,8 +107,10 @@ export const esTranslations: Itranslate = {
     send: "Enviar"
   },
   skills: {
-    title: ''
-  }
+    title: 'Habilidades'
+  },
+
+  
 }
 
 

@@ -28,7 +28,17 @@ export interface Itranslate{
     paragraph3: string;
   },
 
-      projectTitles: {
+  projectTitles: {
+    p1: string
+    p2: string
+    p3: string
+    p4: string
+    p5: string
+    p6: string
+  },
+
+
+  projectP: {
     p1: string
     p2: string
     p3: string
@@ -49,7 +59,9 @@ export interface Itranslate{
     hconsul:string
     consultation:string
     send:string
-  }
+  },
+
+
 }
 
 export type Language = 'es' | 'en'
