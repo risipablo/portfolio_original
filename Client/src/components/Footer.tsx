@@ -2,7 +2,7 @@ import { Download, Github, Linkedin, MapPin,  } from 'lucide-react';
 import "../style/footer.css"
 import { Tooltip } from '@mui/material';
 import { motion } from 'framer-motion';
-import cv from "../assets/others/cv.pdf"
+import cv from "../assets/others/Pablo-RISI-CV.pdf"
 import { useLanguage } from '../hook/UseLanguage';
 import { enTranslations, esTranslations } from './translation/translate';
 
@@ -73,7 +73,7 @@ export const Footer = () => {
 
         <div className="footer-location">
           <MapPin size={18} />
-          <span>Neuquén, Argentina</span>
+          <span>Cipolletti, Argentina</span>
         </div>
       </div>
 

@@ -49,17 +49,11 @@ export const Contact = () => {
             [name]: value
         }));
 
-        if (errors[name]) {
-            setErrors(prev => ({
-                ...prev,
-                [name]: ""
-            }));
-        }
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsLoading(true);
+        setIsLoading(true); 
 
         const newErrors: Record<string, string> = {};
         if (!formData.name.trim()) newErrors.name = translation.contact.name || "Please enter your name";

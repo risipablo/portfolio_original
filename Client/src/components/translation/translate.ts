@@ -10,7 +10,7 @@ export const enTranslations: Itranslate = {
   },
 
   header:{
-    title: "Devoloper Front End",
+    title: "Devoloper Front End & Back End",
     titleP: "My Projects",
     p:"All right reserverd."
   },

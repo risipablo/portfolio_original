@@ -3,7 +3,8 @@ import "../style/header.css"
 import { motion } from "framer-motion"
 import { Github, Linkedin, Download } from "lucide-react"
 import Tooltip from '@mui/material/Tooltip'
-import cv from "../assets/others/cv.pdf"
+import cv from "../assets/others/Pablo-Risi-CVE.pdf"
+import cve from "../assets/others/Pablo-RISI-CV.pdf"
 import { useLanguage } from '../hook/UseLanguage';
 import { enTranslations, esTranslations } from "./translation/translate"
 
@@ -119,14 +120,14 @@ export const Header = () => {
                         </motion.a>
 
                         <motion.a 
-                            href={cv}
+                            href={language === 'en' ? cv : cve}
                             download
                             className="social-icon cv-icon"
                             whileHover={{ scale: 1.1, y: -3 }}
                             whileTap={{ scale: 0.95 }}
                             aria-label="Descargar CV"
                         >
-                            <Tooltip title="Descargar CV" placement="top">
+                            <Tooltip title={language === 'en' ? "Download CV" : "Descargar CV"} placement="top">
                                 <span>
                                     <Download size={28} />
                                 </span>
