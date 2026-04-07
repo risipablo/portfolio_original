@@ -45,6 +45,7 @@ export interface Itranslate{
     p4: string
     p5: string
     p6: string
+    p7: string
   },
   skills:{
     title:string

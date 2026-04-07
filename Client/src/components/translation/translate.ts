@@ -39,7 +39,8 @@ export const enTranslations: Itranslate = {
     p3:"Web app to organize and plan your activities.",
     p4:"Web game with programming questions.",
     p5:"Web app for conducting raffles among participants.",
-    p6:"Informative website for a medical practice."
+    p6:"Informative website for a medical practice.",
+    p7:"Personal portfolio for a psychologist."
   },
 
   contact:{
@@ -92,7 +93,8 @@ export const esTranslations: Itranslate = {
     p3:"App web para organizar y planificar tus actividades.",
     p4:"Juego web con preguntas de programación.",
     p5:"App web para realizar sorteos entre participantes.",
-    p6:"Sitio web informativo para un consultorio médico."
+    p6:"Sitio web informativo para un consultorio médico.",
+    p7:"Portafolio personal para una psicóloga."
   },
 
   contact: {

@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ChevronLeft, ChevronRight, Github, Globe, NotepadText } from "lucide-react";
+import { ChevronLeft, ChevronRight, Github, Globe, NotepadText, } from "lucide-react";
 import { Tooltip } from "@mui/material";
 import { project } from "./Data/project"; 
 import "../style/projects.css";
 import { useLanguage } from '../hook/UseLanguage';
 import { enTranslations, esTranslations } from "./translation/translate";
+import { ProjectNoteModal } from "./projectNoteModel";
 
 export const SliderProjects = () => {
 
@@ -70,6 +71,11 @@ export const SliderProjects = () => {
   }
 
   const visibleProjects = getVisibleProjects();
+
+  const [modalData, setModalData] = useState<{ title: string; note: string; skills: string[] } | null>(null);
+  
+
+
 
   return (
     <motion.div
@@ -169,17 +175,22 @@ export const SliderProjects = () => {
                           </button>
                         </Tooltip>
                       )}
-                      {proj.web?.note && (
-                        <Tooltip title="Ver descripción" placement="bottom">
-                          <button
-                            className="project-icon-button"
-                            onClick={() => alert(proj.web.note)}
-                            aria-label="Ver descripción del proyecto"
-                          >
-                            <NotepadText size={20} />
-                          </button>
-                        </Tooltip>
-                      )}
+
+                      <Tooltip title="Ver descripción" placement="bottom">
+                      <button
+                          className="project-icon-button"
+                          onClick={() =>
+                          setModalData({
+                            title: proj.title,
+                            note: getTranslatedDescription(proj.originalIndex),
+                            skills: proj.skill || []
+                          })
+                        }
+                      >
+                        <NotepadText size={20}/>
+                      </button>
+                      </Tooltip>
+   
                     </div>
                   </div>
                 </div>
@@ -207,6 +218,16 @@ export const SliderProjects = () => {
           />
         ))}
       </div>
+
+        {modalData && (
+        <ProjectNoteModal
+          isOpen={!!modalData}
+          onClose={() => setModalData(null)}
+          title={modalData.title}
+          note={modalData.note}
+          skills={modalData.skills}
+        />
+      )}
     </motion.div>
   );
 };
