@@ -15,7 +15,8 @@ export const project = [
     web: {
       github: "https://github.com/risipablo/Billetera_Virtual.git",
       url: "https://billetera-virtual-nine.vercel.app",
-      note: "Aplicación web para gestionar tus finanzas personales. Permite registrar ingresos y egresos, categorizar gastos y visualizar un resumen de tu situación económica de forma clara y sencilla."
+      note: "Aplicación web para gestionar tus finanzas personales de forma integral. Permite registrar ingresos y egresos, categorizar gastos automáticamente, visualizar un resumen detallado de tu situación económica y generar reportes mensuales. La plataforma fue desarrollada de forma independiente para ser utilizada por todo el público en general, sin restricciones ni necesidad de pago. Ideal para personas que desean tomar control de sus finanzas personales de manera simple y eficiente."
+
     },
     image: image2,
   },
@@ -27,7 +28,8 @@ export const project = [
     web: {
       github: "https://github.com/risipablo/Ventas_de_negocio.git",
       url: "-",
-      note: "Sistema de gestión comercial desarrollado para un cliente específico. Permite administrar ventas, controlar el stock de productos, gestionar proveedores y clientes, y generar reportes para optimizar las operaciones del negocio."
+      note: "Sistema de gestión comercial desarrollado a medida para un cliente específico y vigente. Este fue mi primer proyecto a gran escala con un cliente real, donde implementé soluciones profesionales para administrar ventas de forma eficiente, controlar el stock de productos en tiempo real, gestionar bases de datos de proveedores y clientes, y generar reportes detallados para optimizar las operaciones del negocio. El sistema ha sido una herramienta clave para mejorar la productividad y rentabilidad del negocio del cliente."
+
     },
     image: image1,
   },
@@ -39,7 +41,7 @@ export const project = [
     web: {
       github: "https://github.com/risipablo/App-calendario.git",
       url: "https://app-calendario-rust.vercel.app",
-      note: "Aplicación de productividad para gestionar tu agenda diaria. Permite crear y editar eventos, establecer recordatorios y visualizar tus actividades en un calendario intuitivo con autenticación de usuarios."
+      note: "Aplicación de productividad desarrollada de forma independiente para gestionar tu agenda diaria de manera intuitiva. Permite crear, editar y eliminar eventos, establecer recordatorios automáticos para no olvidar tareas importantes, y visualizar todas tus actividades en un calendario interactivo. Incluye autenticación de usuarios para proteger tus datos personales. Este proyecto fue construido de forma gratuita para todo el público con todos mis conocimientos en desarrollo full-stack, siendo un proyecto novedoso que demuestra la capacidad de crear aplicaciones completas y robustas."
     },
     image: image3,
   },
@@ -51,7 +53,8 @@ export const project = [
     web: {
       github: "https://github.com/risipablo/app_sorteo.git",
       url: "https://juego-de-multiple-opcion.vercel.app/",
-      note: "Juego interactivo de preguntas y respuestas orientado a desarrolladores. Presenta desafíos de múltiple opción sobre distintos temas de programación, ideal para poner a prueba y reforzar conocimientos técnicos de forma entretenida."
+      note: "Juego interactivo de preguntas y respuestas orientado específicamente a desarrolladores en formación. Presenta desafíos de múltiple opción sobre distintos temas de programación para poner a prueba y reforzar conocimientos técnicos de forma entretenida. Este fue uno de mis primeros proyectos realizados como práctica estudiantil, desarrollado con tecnologías fundamentales (HTML, CSS, JavaScript) para consolidar los conocimientos básicos del desarrollo web. Ideal para aprender de forma más dinámica y amena."
+
     },
     image: image4,
   },
@@ -63,7 +66,8 @@ export const project = [
     web: {
       github: "https://github.com/risipablo/app_sorteo.git",
       url: "https://app-sorteo-bgv7.vercel.app/",
-      note: "Herramienta web para llevar a cabo sorteos de forma rápida y transparente. Permite cargar una lista de participantes, definir la cantidad de ganadores y obtener resultados aleatorios al instante, ideal para rifas o eventos."
+      note: "Herramienta web desarrollada de manera estudiantil y práctica para llevar a cabo sorteos de forma rápida, transparente y equitativa. Permite cargar una lista de participantes, definir la cantidad de ganadores deseados y obtener resultados aleatorios al instante. Ideal para rifas, eventos, promociones o cualquier situación donde necesites seleccionar ganadores de forma justa. Fue uno de mis primeros proyectos prácticos y actualmente está disponible de forma gratuita para todo el mundo sin limitaciones de uso."
+
     },
     image: image5,
   },
@@ -75,7 +79,7 @@ export const project = [
     web: {
       github: "https://github.com/risipablo/proyecto-vita.git",
       url: "https://proyecto-vita.vercel.app/",
-      note: "Sitio web institucional diseñado para un consultorio médico. Presenta los servicios ofrecidos, información del equipo profesional y datos de contacto, brindando una presencia digital clara y confiable para los pacientes."
+      note: "Sitio web institucional profesional diseñado exclusivamente para un consultorio médico específico que en su momento fue una institución de importancia. La plataforma presenta de forma clara y organizada todos los servicios ofrecidos por el consultorio, información detallada del equipo profesional, horarios de atención y datos de contacto completos. Brinda una presencia digital confiable y de calidad que inspira confianza en los pacientes actuales y potenciales, facilitando la comunicación y generando una imagen profesional sólida para la institución."
     },
     image: image6,
   },
@@ -87,7 +91,8 @@ export const project = [
     web: {
       github: "https://github.com/risipablo/portafolio-psicologa.git",
       url: "https://sabrina-ramos-psicologa.vercel.app/",
-      note: "Página web profesional desarrollada a medida para una psicóloga. Incluye presentación de servicios, información sobre la profesional, y un formulario de contacto con envío de emails integrado mediante Resend."
+      note: "Página web profesional desarrollada completamente a medida para una psicóloga con el objetivo de posicionar su práctica profesional en internet. Incluye presentación detallada de los servicios psicológicos ofrecidos, información completa sobre la profesional y su experiencia, así como un formulario de contacto funcional con envío de emails automático integrado mediante la plataforma Resend. Esta solución permite que los pacientes potenciales conozcan los servicios disponibles y se comuniquen directamente, facilitando la generación de nuevos clientes y consolidando su presencia digital como profesional."
+
     },
     image: image7,
   }

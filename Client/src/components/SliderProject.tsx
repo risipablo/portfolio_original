@@ -72,7 +72,12 @@ export const SliderProjects = () => {
 
   const visibleProjects = getVisibleProjects();
 
-  const [modalData, setModalData] = useState<{ title: string; note: string; skills: string[] } | null>(null);
+  const [modalData, setModalData] = useState<{
+    title: string
+    note: string
+    skills: string[]
+    webLinks?: { github?: string; url?: string; note?: string }
+  } | null>(null);
   
 
 
@@ -179,13 +184,14 @@ export const SliderProjects = () => {
                       <Tooltip title="Ver descripción" placement="bottom">
                       <button
                           className="project-icon-button"
-                          onClick={() =>
-                          setModalData({
-                            title: proj.title,
-                            note: getTranslatedDescription(proj.originalIndex),
-                            skills: proj.skill || []
-                          })
-                        }
+                          onClick={() => 
+                            setModalData({
+                              title: proj.title,
+                              note: proj.web?.note || getTranslatedDescription(proj.originalIndex),
+                              skills: proj.skill || [],
+                              webLinks: proj.web
+                            })
+                          }
                       >
                         <NotepadText size={20}/>
                       </button>
