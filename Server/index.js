@@ -15,7 +15,7 @@ if (!process.env.RESEND_API_KEY || !process.env.EMAIL_USER) {
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://portfolio-original-pearl.vercel.app', 'https://portafolio-original.onrender.com'],
+    origin: ['http://localhost:5173', 'https://portfolio-original-pearl.vercel.app', 'https://portafolio-original.onrender.com','https://sabrinaramospsicologa.com'],
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
